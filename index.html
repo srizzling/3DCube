@@ -98,13 +98,18 @@
 						.normalize().multiplyScalar(1.2);
 			scene.add( light );
 
-			var cubeMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, vertexColors: THREE.FaceColors } );
-			var cubeGeometry = new THREE.CubeGeometry( 1, 1, 1, 3, 3, 3 );
-			for ( var i = 0; i < cubeGeometry.faces.length; i++ ) 
-				{
-					face  = cubeGeometry.faces[ i ];	
-					face.color.setRGB( Math.random(), Math.random(), Math.random() );		
-				}
+			//var cubeMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, vertexColors: THREE.FaceColors } );
+			//var cubeGeometry = new THREE.CubeGeometry( 1, 1, 1, 3, 3, 3 );
+			//for ( var i = 0; i < cubeGeometry.faces.length; i++ ) 
+			//	{
+			//		face  = cubeGeometry.faces[ i ];	
+			//		face.color.setRGB( Math.random(), Math.random(), Math.random() );		
+//				}
+			//cube = new THREE.Mesh( cubeGeometry, cubeMaterial );
+			var moonTexture = THREE.ImageUtils.loadTexture( 'images/brick.jpg' );
+			var cubeMaterial = new THREE.MeshBasicMaterial( { map:moonTexture} );
+			
+			var cubeGeometry = new THREE.CubeGeometry( 2, 1, 1);
 			cube = new THREE.Mesh( cubeGeometry, cubeMaterial );
 			scene.add(cube);
 
